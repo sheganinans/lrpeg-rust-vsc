@@ -1,0 +1,38 @@
+grammar <- ws definition+ EOI;
+
+definition <- XID_IDENTIFIER ws "<-" ws expression ";"? ws;
+
+expression <-
+        unlabeled:/ sequence (sequence_marker ws sequence)*
+        labeled:/ (sequence_marker ws sequence)+;
+
+sequence <- alternative+;
+
+sequence_marker <- "/"
+        / XID_IDENTIFIER ":/";
+
+alternative <-
+        optional:/ alternative "?" ws
+        any:/ alternative "*" ws
+        more:/ alternative "+" ws
+        pub:/ "<" alternative ">" ws
+        rename_pub:/ "<" XID_IDENTIFIER ":" alternative ">" ws
+        parenthesis:/ "(" ws expression ")" ws
+        primary:/ primary ws;
+
+primary <-
+        must:/ "&" ws primary
+        must_not:/ "!" ws primary
+        regex:/ regex ws
+        id:/ XID_IDENTIFIER ws !"<-" !":/"
+        literal:/ string_literal ws
+        dot:/ "." ws;
+
+string_literal <- re#"([^"\\]|\\.)*"#
+        /  re#'([^'\\]|\\.)*'#;
+
+regex <- re#re\#([^\#\\]|\\.)*\##;
+
+ws <- (COMMENT / WHITESPACE)*;
+
+COMMENT <- re#//[^\r\n]*# .

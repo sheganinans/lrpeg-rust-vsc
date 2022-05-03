@@ -1,0 +1,95 @@
+{
+  "name": "lrpeg",
+  "patterns": [
+    {
+      "include": "#id"
+    },
+    {
+      "include": "#defn_inner"
+    },
+    {
+      "include": "#comment"
+    }
+  ],
+  "repository": {
+    "comment": {
+      "begin": "//",
+      "end": "$",
+      "name": "comment.line.lrpeg"
+    },
+    "defn_inner": {
+      "begin": "<-",
+      "end": ";",
+      "name": "keyword.control.expr.lrpeg",
+      "patterns": [
+        {
+          "include": "#regex"
+        },
+        {
+          "include": "#keyword"
+        },
+        {
+          "include": "#id"
+        },
+        {
+          "include": "#comment"
+        },
+        {
+          "include": "#strings"
+        },
+        {
+          "include": "#ops"
+        }
+      ]
+    },
+    "id": {
+      "name": "variable.id.lrpeg",
+      "patterns": [
+        {
+          "match": "[\\p{Letter}_]+",
+          "name": "variable.id.lrpeg"
+        }
+      ]
+    },
+    "keyword": {
+      "patterns": [
+        {
+          "match": "(WHITESPACE|XID_IDENTIFIER|DOT|EOI)",
+          "name": "keyword.keyword.lrpeg"
+        }
+      ]
+    },
+    "ops": {
+      "name": "operators.lrpeg",
+      "patterns": [
+        {
+          "match": "(!|&|\\?|\\*|\\+|/|\\.)",
+          "name": "entity.name.function.operator.lrpeg"
+        }
+      ]
+    },
+    "regex": {
+      "name": "regex.lrpeg",
+      "patterns": [
+        {
+          "match": "re#([^#\\\\]|\\\\.)*#",
+          "name": "string.quoted.double.regex.lrpeg"
+        }
+      ]
+    },
+    "strings": {
+      "name": "string.quoted.double.lrpeg",
+      "patterns": [
+        {
+          "match": "\"([^\"\\\\]|\\\\.)*\"",
+          "name": "string.quoted.double.string.lrpeg"
+        },
+        {
+          "match": "'([^'\\\\]|\\\\.)*'",
+          "name": "string.quoted.double.string.lrpeg"
+        }
+      ]
+    }
+  },
+  "scopeName": "source.lrpeg"
+}

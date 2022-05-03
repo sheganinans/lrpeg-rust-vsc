@@ -1,0 +1,26 @@
+{
+    "name": "lrpeg-rust",
+    "displayName": "lrpeg-rust",
+    "icon": "images/calc.png",
+    "description": "Syntax Highlighting for lrpeg parsers.",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.66.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "lrpeg",
+            "aliases": ["lrpeg", "lrpeg"],
+            "extensions": [".peg"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "lrpeg",
+            "scopeName": "source.lrpeg",
+            "path": "./syntaxes/lrpeg.tmLanguage.json"
+        }]
+    }
+}
