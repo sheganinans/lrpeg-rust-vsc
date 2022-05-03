@@ -4,6 +4,10 @@
     "icon": "images/calc.png",
     "description": "Syntax Highlighting for lrpeg parsers.",
     "version": "0.0.1",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/sheganinans/lrpeg-rust-vsc.git"
+      },
     "engines": {
         "vscode": "^1.66.0"
     },
