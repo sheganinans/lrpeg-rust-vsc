@@ -3,7 +3,7 @@
     "displayName": "lrpeg-rust",
     "icon": "images/calc.png",
     "description": "Syntax Highlighting for lrpeg parsers.",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "publisher" : "sheganinans",
     "repository": {
         "type": "git",

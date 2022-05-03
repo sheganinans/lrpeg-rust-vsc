@@ -2,6 +2,10 @@
 
 Syntax highlighting for the Rust lrpeg library: https://github.com/seanyoung/lrpeg
 
+Available at: https://marketplace.visualstudio.com/items?itemName=sheganinans.lrpeg-rust
+
+Source at: https://github.com/sheganinans/lrpeg-rust-vsc
+
 ## Features
 
 ![](images/self.png)
